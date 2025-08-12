@@ -1,4 +1,5 @@
-FROM photon:3.0-20200609
+#FROM photon:3.0-20200609
+FROM photon:5.0
 
 ADD target/python /ipam/python
 
