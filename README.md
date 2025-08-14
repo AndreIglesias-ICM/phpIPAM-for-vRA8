@@ -35,4 +35,10 @@ https://runtimeterror.dev/integrating-phpipam-with-vrealize-automation-8/
 
 You can then learn how to utilize the new IPAM integration [here](https://docs.vmware.com/en/vRealize-Automation/8.2/Using-and-Managing-Cloud-Assembly/GUID-9AE32BD7-2D1B-4FEE-881F-A0EDE5907D10.html)
 
+## Build
+
+```bash
+mvn package -PcollectDependencies -Duser.id=${UID}
+```
+
 See [VMware's IPAM SDK README](README_VMware.md) for information on how to adapt the code if needed.
