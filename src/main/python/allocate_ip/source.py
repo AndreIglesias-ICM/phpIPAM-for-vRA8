@@ -152,11 +152,14 @@ def allocate_in_range(range_id, resource, allocation, context, endpoint, bundle)
         owner_string = " "
       payload = {
         'hostname': vmName,
-        'description': f'Reserved by vRA{owner_string}at {datetime.now()}'
+        'description': f'Reserved by Aria Automation at {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}'
       }
       allocate_uri = f'{uri}/addresses/first_free/{str(range_id)}/'
       allocate_req = requests.post(allocate_uri, data=payload, headers=token, verify=cert)
       allocate_req = allocate_req.json()
+      logging.info(f'Allocate URI : {allocate_uri}')
+      logging.info(f'Allocate Payload : {payload}')
+      logging.info(f'Allocate Request JSON : {allocate_req}')
       if allocate_req['success']:
         version = ipaddress.ip_address(allocate_req['data']).version
         result = {
